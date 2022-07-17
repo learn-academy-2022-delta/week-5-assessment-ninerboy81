@@ -22,8 +22,46 @@ const secretCodeWord2 = "Gobbledygook"
 const secretCodeWord3 = "Eccentric"
 // Expected output: "3cc3ntr1c"
 
+describe ("Secret Code Word", () => {
+    it ("should return a coded message", () => {
+        expect(secretCodeWord(secretCodeWord1)).toEqual("L4ck4d41s1c4l");
+        expect(secretCodeWord(secretCodeWord2)).toEqual("G0bbl3dyg00k");
+        expect(secretCodeWord(secretCodeWord3)).toEqual("3cc3ntr1c");
+    }
+    )
+}
+)
+
+// pseudo code:
+// 1. create a new array
+// 2. loop through the array
+// 3. if the array element includes the letter, push it to the new array
+// 4. use if statement to check if the new array has 5 elements
+// 5. if it does, return true
+// 6. if it doesn't, return false
+// 7. return the new array
+
+
 
 // b) Create the function that makes the test pass.
+
+const secretCodeWord = (str) => {
+    let codedMessage = "";
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === "a") {
+            codedMessage += "4";
+        } else if (str[i] === "e") {
+            codedMessage += "3";
+        } else if (str[i] === "i") {
+            codedMessage += "1";
+        } else if (str[i] === "o") {
+            codedMessage += "0";
+        } else {
+            codedMessage += str[i];
+        }
+    }
+    return codedMessage;
+}
 
 
 // --------------------2) Create a function that takes in an array of words and a single letter and returns an array of all the words containing that particular letter.
@@ -38,7 +76,37 @@ const letterE = "e"
 // Expected output: ["Cherry", "Blueberry", "Peach"]
 
 
+describe ("Fruit Array", () => {
+    it ("should return an array of words containing a letter", () => {
+        expect(fruitArray(fruitArray, letterA)).toEqual(["Mango", "Apricot", "Peach"]);
+        expect(fruitArray(fruitArray, letterE)).toEqual(["Cherry", "Blueberry", "Peach"]);
+    }
+    )
+}
+)
+
+// pseudo code:
+// 1. create newFruitArray
+// 2. pass in the array and the letter
+// 3. loop through the array
+// 4. if the array element includes the letter, push it to the new array
+// 5. return the new array
+
+
+
 // b) Create the function that makes the test pass.
+
+
+const newFruitArray = (arr, letter) => {
+    let newArray = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].includes(letter)) {
+            newArray.push(arr[i]);
+        }
+    }
+    return newArray;
+}
+
 
 
 // --------------------3) Create a function that takes in an array of 5 numbers and determines whether or not the array is a “full house”. A full house is exactly one pair and one three of a kind.
@@ -52,5 +120,41 @@ const hand2 = [5, 5, 3, 3, 4]
 const hand3 = [5, 5, 5, 5, 4]
 // Expected output: false
 
+describe ("Full House", () => {
+    it ("should return true if the array is a full house", () => {
+        expect(fullHouse(hand1)).toEqual(true);
+        expect(fullHouse(hand2)).toEqual(false);
+        expect(fullHouse(hand3)).toEqual(false);
+    }
+    )
+}
+)
+
+
+// pseudo code:
+// 1. create newArray called fullHouse
+// 2. use let newArray = [] to create a new array
+// 3. loop through the array
+// 4. if the array element is equal to the first element, push it to the new array
+// 5. return the new array
+// 6. if the new array has 2 elements, return true
+// 7. if the new array has 1 element, return false
+// 8. return the new array
+
 
 // b) Create the function that makes the test pass.
+
+const fullHouse = (arr) => {
+    let newArray = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === arr[0]) {
+            newArray.push(arr[i]);
+        }
+    }
+    if (newArray.length === 2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
