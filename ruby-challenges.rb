@@ -10,6 +10,12 @@ letter_o = 'o'
 letter_t = 't'
 # Expected output: ['tea', 'water', 'soda water']
 
+def letter_check array, letter
+  array.select { |word| word.include?(letter) }
+end
+
+p letter_check(beverages_array, letter_o)
+p letter_check(beverages_array, letter_t)
 
 # -------------------2) Create a method that takes in an array of numbers and returns the sum of the numbers. Use the test variables provided.
 
@@ -19,9 +25,48 @@ nums_array1 = [42, 7, 27]
 nums_array2 = [25, 17, 47, 11]
 # Expected output: 100
 
+def sum_array array
+  array.inject(0) { |sum, num| sum += num }
+end
+
+p sum_array(nums_array1)
+p sum_array(nums_array2)
+
 
 
 # --------------------3a) Create a class called Bike that is initialized with a model, wheels, and current_speed. The default number of wheels is 2. The current_speed should start at 0. Create a bike_info method that returns a sentence with all the data from the bike object.
+
+class Bike
+    def initialize(model, wheels = 2, current_speed = 0)
+        @model = model
+        @wheels = wheels
+        @current_speed = current_speed
+    end
+
+    def bike_info
+        "The #{@model} bike has #{@wheels} wheels and is going #{@current_speed} mph."
+    end
+    def pedal_faster(speed)
+        @current_speed += speed
+    end
+    def brake(speed)
+        @current_speed -= speed
+        if @current_speed < 0
+            return 0
+        else
+            return @current_speed
+    end
+end
+end
+
+
+p bike = Bike.new('Trek')
+p bike.bike_info
+p bike.pedal_faster(10)
+p bike.pedal_faster(18)
+p bike.brake(5)
+p bike.brake(25)
+
 
 # Expected output example: 'The Trek bike has 2 wheels and is going 0 mph.'
 
